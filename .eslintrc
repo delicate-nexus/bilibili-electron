@@ -1,0 +1,12 @@
+{
+  "extends": "react-app",
+  "rules": {
+    "semi": ["error", "never"],
+    "quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-single"],
+    "arrow-parens": ["error", "always"],
+    "no-console": "warn",
+    "no-alert": "warn",
+    "no-debugger": "warn"
+  }
+}

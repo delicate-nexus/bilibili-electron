@@ -7,14 +7,23 @@ const { app, BrowserWindow } = require("electron");
 let mainWindow;
 
 function createWindow() {
+  const options = {
+    height: 800,
+    width: 600,
+    // show: false, // 当window创建的时候不用打开
+    // center: true,
+    // fullscreenable: false,
+    // resizable: false,
+    title: 'PicGo',
+    // vibrancy: 'ultra-dark', // 窗口模糊的样式
+    transparent: true,
+    titleBarStyle: 'hidden', // title-bar的样式——隐藏顶部栏的横条，把操作按钮嵌入窗口
+    webPreferences: {
+      backgroundThrottling: false
+    }
+  }
   // Create the browser window.
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600
-    // webPreferences: {
-    //   preload: path.join(__dirname, 'preload.js')
-    // }
-  });
+  mainWindow = new BrowserWindow(options);
 
   // and load the index.html of the app.
   // mainWindow.loadFile('index.html')

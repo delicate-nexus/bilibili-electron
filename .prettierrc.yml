@@ -1,0 +1,11 @@
+semi: false
+singleQuote: true
+arrowParens: always
+jsxSingleQuote: true
+# This is no need, prettier can judge which parser to use
+# overrides:
+#   - files: '*.vue'
+#     parser: vue
+
+#   - files: '*.md'
+#     parser: markdown
