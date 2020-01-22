@@ -1,0 +1,40 @@
+// mixins
+@mixin flex($j: center, $a: center, $d: row) {
+  display: flex;
+  justify-content: $j;
+  align-items: $a;
+  flex-direction: $d;
+}
+
+@mixin wh($w, $h) {
+  width: $w * 1px;
+  height: $h * 1px;
+}
+
+@mixin ft($s, $c) {
+  font-size: $s;
+  color: $c;
+}
+
+@mixin component-reset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+@mixin rtl {
+  [data-direction='rtl'] & {
+    @content;
+  }
+}
+
+@mixin local($cs...) {
+  @each $c in $cs {
+    [data-app-local='#{$c}'] & {
+      @content;
+    }
+  }
+}

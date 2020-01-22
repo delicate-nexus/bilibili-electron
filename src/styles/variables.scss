@@ -1,0 +1,55 @@
+$componentPrefix: 'micomm' !default;
+
+@function palette($colorName, $tone: '') {
+  @if $tone == '' {
+    @return var(unquote('--color-#{$colorName}'));
+  }
+
+  @return var(unquote('--color-#{$colorName}-#{$tone}'));
+}
+
+$size: (
+  'title': 24px,
+  'base': 14px
+) !default;
+
+$shadow: (
+  'depth-1': 0 0 4px rgba(#000, 0.2),
+  'depth-2': 0 0 12px rgba(#000, 0.22),
+  'depth-3': 0 0 24px rgba(#000, 0.4),
+  'depth-4': 0 0 36px rgba(#000, 0.6)
+) !default;
+
+@function shadow($depth: 1) {
+  @return map-get($map: $shadow, $key: 'depth-#{$depth}');
+}
+
+$bgOpacity: (
+  'opacity-1': rgba(#000, 0.2),
+  'opacity-2': rgba(#000, 0.4)
+) !default;
+
+@function bgOpacity($opacity: 1) {
+  @return map-get($map: $bgOpacity, $key: 'opacity-#{$opacity}');
+}
+
+$headerHeight: (
+  'pc': 72px,
+  'm': d(120)
+) !default;
+
+$footerHeight: (
+  'pc': 72px,
+  'm': d(208)
+) !default;
+
+$mainMinHeight: (
+  'pc':
+  calc(
+    100vh - #{map-get($headerHeight, 'pc')} - #{map-get($footerHeight, 'pc')}
+  ),
+  'm':
+  calc(
+    100vh - #{map-get($headerHeight, 'm')} - #{map-get($footerHeight, 'm')}
+  )
+) !default;

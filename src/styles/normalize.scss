@@ -1,0 +1,120 @@
+@import './index.scss';
+@import './theme.scss';
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+body {
+  font-family: -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'PingFang SC',
+    'Hiragino Sans GB',
+    'Microsoft YaHei',
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  background-color: palette('background', 'light');
+
+  @include transition;
+}
+
+header,
+nav,
+aside,
+main,
+article,
+figure {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  @extend %main;
+
+  min-height: map-get($map: $mainMinHeight, $key: 'pc');
+}
+
+[data-direction='rtl'] {
+  direction: rtl;
+}
+
+#root {
+  margin-left: calc(100vw - 100%);
+}
+
+#nprogress {
+  // not working
+  // @include rtl {
+  //   transform: rotateY(180deg);
+  //   transform: scaleX(-1);
+  // }
+  .bar {
+    background: palette('primary');
+  }
+}
+
+.medium-zoom--opened .medium-zoom-overlay {
+  background: palette('background', 'light') !important;
+}

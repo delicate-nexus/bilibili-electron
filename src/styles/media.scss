@@ -1,0 +1,34 @@
+// media query
+$breakpoints: (
+  'xs': 'screen and (max-width: 480px)',
+  'sm': 'screen and (max-width: 768px)',
+  'md': 'screen and (max-width: 992px)',
+  'lg': 'screen and (max-width: 1160px)',
+  'xl': 'screen and (min-width: 1160px)'
+) !default;
+
+// use mobile style when less than pad
+@mixin respond-to($breakpoint: 'sm') {
+  $query: map-get($breakpoints, $breakpoint);
+
+  @if not $query {
+    @error 'No value found for `#{$breakpoint}`.';
+  }
+
+  @media #{if(type-of($query) == 'string', unquote($query), inspect($query))} {
+    @content;
+  }
+}
+
+// mobile size transform, keep two decimals
+$defaultMobileWidth: 398 !default;
+
+// adapt to width 750px UI
+@function r($px) {
+  @return round($px / 750 * $defaultMobileWidth * 100) / 100 * 1px;
+}
+
+// adapt to width 1080px UI
+@function d($px) {
+  @return round($px / 1080 * $defaultMobileWidth * 100) / 100 * 1px;
+}

@@ -1,22 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { Layout } from '@/components'
+import { Sider, Header, Content } from '@/components-pro'
+import './App.css'
 
 function App() {
+  const [siderCollapsed, setSiderCollapsed] = useState(false)
+  const toggleSiderCollapse = () => setSiderCollapsed(!siderCollapsed)
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React....
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Layout className='app-layout'>
+        <Sider collapsed={siderCollapsed} onCollapse={toggleSiderCollapse} />
+        <Layout>
+          <Header
+            collapsed={siderCollapsed}
+            onCollapseClick={toggleSiderCollapse}
+          />
+          <Content>11111</Content>
+        </Layout>
+      </Layout>
+    </Router>
   )
 }
 

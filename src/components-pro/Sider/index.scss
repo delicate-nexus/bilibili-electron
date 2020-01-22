@@ -1,0 +1,11 @@
+@import '@/styles';
+
+.logo {
+  height: 32px;
+  // background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+  margin-top: 36px;
+  font-size: 24px;
+  color: #fff;
+  @extend %text-elli;
+}
