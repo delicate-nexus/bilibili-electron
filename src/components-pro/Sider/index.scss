@@ -1,11 +1,40 @@
 @import '@/styles';
 
-.logo {
-  height: 32px;
-  // background: rgba(255, 255, 255, 0.2);
-  margin: 16px;
-  margin-top: 36px;
-  font-size: 24px;
-  color: #fff;
-  @extend %text-elli;
+.app-sider {
+  .user {
+    @include flex(flex-start);
+    color: #fff;
+    height: fit-content;
+    font-size: 18px;
+    margin-top: 28px;
+  }
+  .logo {
+    @extend %text-elli;
+    @include wh(80);
+    @include transition;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5) inset;
+    background-color: #fff;
+    background-image: url(~@/assets/images/logo.jpg);
+    background-size: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 16px;
+    // margin-top: 36px;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  &.ant-layout-sider-collapsed {
+    .logo {
+      @include wh(45);
+      background-size: 60px * 45 / 80;
+    }
+    .username {
+      display: none;
+    }
+  }
+  a {
+    color: inherit;
+  }
 }

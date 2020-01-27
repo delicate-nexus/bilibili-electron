@@ -6,9 +6,14 @@
   flex-direction: $d;
 }
 
-@mixin wh($w, $h) {
-  width: $w * 1px;
-  height: $h * 1px;
+@mixin wh($w, $h: none) {
+  @if $h == none {
+    width: $w * 1px;
+    height: $w * 1px;
+  } @else {
+    width: $w * 1px;
+    height: $h * 1px;
+  }
 }
 
 @mixin ft($s, $c) {

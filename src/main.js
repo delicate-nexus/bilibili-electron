@@ -9,7 +9,7 @@ let mainWindow
 function createWindow() {
   const options = {
     height: 800,
-    width: 600,
+    width: (800 * 16) / 9,
     // show: false, // 当window创建的时候不用打开
     // center: true,
     // fullscreenable: false,
@@ -19,7 +19,8 @@ function createWindow() {
     transparent: true,
     titleBarStyle: 'hiddenInset', // title-bar的样式——隐藏顶部栏的横条，把操作按钮嵌入窗口
     webPreferences: {
-      backgroundThrottling: false
+      backgroundThrottling: false,
+      nodeIntegration: true
     }
   }
   // Create the browser window.

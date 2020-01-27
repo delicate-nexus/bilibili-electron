@@ -1,47 +1,42 @@
 import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu, Icon } from '@/components'
 
-const { SubMenu } = Menu
+// const { SubMenu } = Menu
 
 export default () => {
+  const { pathname } = useLocation()
   return (
-    <Menu theme='dark' defaultSelectedKeys={['1']} mode='inline'>
-      <Menu.Item key='1'>
-        <Icon type='pie-chart' />
-        <span>Option 1</span>
+    <Menu theme='dark' selectedKeys={[pathname]} mode='inline'>
+      <Menu.Item key='/home'>
+        <Link to='/'>
+          <Icon type='home' />
+          <span>首页</span>
+        </Link>
       </Menu.Item>
-      <Menu.Item key='2'>
-        <Icon type='desktop' />
-        <span>Option 2</span>
+      <Menu.Item key='/hot'>
+        <Link to='/hot'>
+          <Icon type='fire' />
+          <span>热门</span>
+        </Link>
       </Menu.Item>
-      <SubMenu
-        key='sub1'
-        title={
-          <span>
-            <Icon type='user' />
-            <span>User</span>
-          </span>
-        }
-      >
-        <Menu.Item key='3'>Tom</Menu.Item>
-        <Menu.Item key='4'>Bill</Menu.Item>
-        <Menu.Item key='5'>Alex</Menu.Item>
-      </SubMenu>
-      <SubMenu
-        key='sub2'
-        title={
-          <span>
-            <Icon type='team' />
-            <span>Team</span>
-          </span>
-        }
-      >
-        <Menu.Item key='6'>Team 1</Menu.Item>
-        <Menu.Item key='8'>Team 2</Menu.Item>
-      </SubMenu>
-      <Menu.Item key='9'>
-        <Icon type='file' />
-        <span>File</span>
+      <Menu.Item key='/anime'>
+        <Link to='/anime'>
+          <Icon type='video-camera' />
+          <span>追番</span>
+        </Link>
+      </Menu.Item>
+      <Menu.Item key='/player'>
+        <Link to='/player'>
+          <Icon type='play-circle' />
+          <span>本地视频播放</span>
+        </Link>
+      </Menu.Item>
+      <Menu.Item key='/setting'>
+        <Link to='/setting'>
+          <Icon type='setting' />
+          <span>设置</span>
+        </Link>
       </Menu.Item>
     </Menu>
   )

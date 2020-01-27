@@ -7,8 +7,16 @@ const { Sider } = Layout
 
 export default ({ collapsed, onCollapse }) => {
   return (
-    <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-      <div className='logo'>聚合云</div>
+    <Sider
+      className='app-sider'
+      collapsible
+      collapsed={collapsed}
+      onCollapse={onCollapse}
+    >
+      <div className='user'>
+        <div className='logo'></div>
+        <div className='username'>登录</div>
+      </div>
       <Menu />
     </Sider>
   )

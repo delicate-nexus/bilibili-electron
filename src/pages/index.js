@@ -1,0 +1,6 @@
+export { default as Anime } from './Anime'
+export { default as Home } from './Home'
+export { default as Hot } from './Hot'
+export { default as Player } from './Player'
+export { default as Redirects } from './Redirects'
+export { default as Setting } from './Setting'
