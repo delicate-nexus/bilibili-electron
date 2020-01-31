@@ -1,0 +1,16 @@
+@import '@/styles';
+
+$prefixCls: 'path-browser-item' !default;
+
+.#{$prefixCls} {
+  @include transition;
+  @extend %text-elli;
+  padding: 0.4em 1em;
+  cursor: pointer;
+  &:hover {
+    background: #f1f1f1;
+  }
+  &-text {
+    margin-left: 0.6em;
+  }
+}

@@ -6,6 +6,8 @@ const { app, BrowserWindow } = require('electron')
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
+const isEnvProduction = process.env.NODE_ENV === 'production'
+
 function createWindow() {
   const options = {
     height: 800,
@@ -14,7 +16,7 @@ function createWindow() {
     // center: true,
     // fullscreenable: false,
     // resizable: false,
-    title: 'PicGo',
+    title: '哔哩哔哩',
     // vibrancy: 'ultra-dark', // 窗口模糊的样式
     transparent: true,
     titleBarStyle: 'hiddenInset', // title-bar的样式——隐藏顶部栏的横条，把操作按钮嵌入窗口
@@ -27,11 +29,12 @@ function createWindow() {
   mainWindow = new BrowserWindow(options)
 
   // and load the index.html of the app.
-  // mainWindow.loadFile('index.html')
-  mainWindow.loadURL('http://localhost:3000')
+  isEnvProduction
+    ? mainWindow.loadFile('build/index.html')
+    : mainWindow.loadURL('http://localhost:3000')
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  isEnvProduction || mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {

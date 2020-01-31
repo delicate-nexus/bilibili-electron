@@ -25,6 +25,7 @@ function App() {
                 <Route path='/home' component={pages.Home} />
                 <Route path='/hot' component={pages.Hot} />
                 <Route path='/player' component={pages.Player} />
+                <Route path='/profile' component={pages.Profile} />
                 <Route path='/setting' component={pages.Setting} />
                 <Route path='*' component={pages.Redirects} />
               </Switch>

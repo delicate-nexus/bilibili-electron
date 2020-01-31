@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Layout } from '@/components'
 import Menu from './Menu'
 import './index.scss'
@@ -13,10 +14,12 @@ export default ({ collapsed, onCollapse }) => {
       collapsed={collapsed}
       onCollapse={onCollapse}
     >
-      <div className='user'>
-        <div className='logo'></div>
-        <div className='username'>登录</div>
-      </div>
+      <Link to='profile'>
+        <div className='user'>
+          <div className='logo'></div>
+          <div className='username'>登录</div>
+        </div>
+      </Link>
       <Menu />
     </Sider>
   )
