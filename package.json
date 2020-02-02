@@ -2,6 +2,7 @@
   "name": "bilibili-electron",
   "version": "0.1.0",
   "private": false,
+  "license": "MIT",
   "author": {
     "name": "Bougie",
     "email": "liuqi.hb.xiaogan@gmail.com",
