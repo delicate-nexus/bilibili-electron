@@ -1,9 +1,4 @@
-import axios from 'axios'
+import { createIpcHook } from '@/utils'
+import { GET_LOGIN_URL } from '@/constants'
 
-export default {
-  getLoginUrl() {
-    return axios
-      .get('https://passport.bilibili.com/qrcode/getLoginUrl')
-      .then(({ data }) => data)
-  }
-}
+export const useLoginUrl = createIpcHook(GET_LOGIN_URL)

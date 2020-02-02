@@ -84,6 +84,11 @@ module.exports = {
   testsSetup: resolveModule(resolveApp, 'src/setupTests'),
   proxySetup: resolveApp('src/setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),
+  electronSrc: resolveApp('src/electron'),
+  electronBin: resolveApp('node_modules/.bin/electron'),
+  electronIndexJs: resolveApp('src/electron/index.js'),
+  electronOutputIndexJs: resolveApp('dist/main.js'),
+  electronOutput: resolveApp('dist'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json'))
 }

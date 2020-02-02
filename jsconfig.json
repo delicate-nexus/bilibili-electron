@@ -3,7 +3,8 @@
     "experimentalDecorators": true,
     "baseUrl": "src",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@e/*": ["./electron/*"]
     }
   },
   "include": ["src"]
