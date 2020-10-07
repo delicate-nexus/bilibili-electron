@@ -1,1 +1,1 @@
-export const GET_LOGIN_URL = 'GET_LOGIN_URL'
+export const GET_USER_INFO = 'GET_USER_INFO'

@@ -1,22 +1,16 @@
-import { useCallback, useEffect } from 'react'
 import { ipcRenderer } from 'electron'
 
-export const createIpcHook = (eventName, { once } = {}) => {
-  return (callback, params) => {
-    const setupListener = useCallback(() => {
-      const handler = (...args) => {
-        callback(...args)
+// const { ipcRenderer } = remote.require('electron')
+
+export const ipc = {
+  get(channel, ...args) {
+    return new Promise((resolve, reject) => {
+      const handler = (event, ...args) => {
+        resolve(...args)
+        ipcRenderer.removeListener(channel, handler)
       }
-      ipcRenderer.send(eventName, ...params)
-      if (once) {
-        ipcRenderer.once(eventName, handler)
-      } else {
-        ipcRenderer.on(eventName, handler)
-        return () => {
-          ipcRenderer.off(eventName, handler)
-        }
-      }
-    }, [callback, params])
-    useEffect(setupListener, [])
+      ipcRenderer.send(channel, ...args)
+      ipcRenderer.on(channel, handler)
+    })
   }
 }

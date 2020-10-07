@@ -1,0 +1,1 @@
+export const STATUS_NO_LOGIN = 'STATUS_NO_LOGIN'

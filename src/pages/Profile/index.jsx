@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
 import { Helmet } from '@/components-pro'
-import { useLoginUrl } from '@/services'
+import { getLoginUrl } from '@/services'
 
 export default () => {
-  useLoginUrl(console.log)
+  // useLoginUrl(console.log)
+  useEffect(() => {
+    getLoginUrl().then(console.log)
+  }, [])
   return (
     <div>
       <Helmet>
